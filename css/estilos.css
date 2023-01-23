@@ -1,0 +1,760 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root{
+    --white: #f9f9f9;
+    --green: #229395;
+    --green-light: #7acbcd;
+    --black: #36383F;
+    --grey: #85888C;
+    --black-nav:#0e1015;
+    --green-hover: rgb(1, 45, 45);
+    --degr-negro-amarillo: linear-gradient(175deg, rgba(0,0,0,1) 4%, rgba(245,244,209,1) 98%);
+    --degr-amari-negro: inear-gradient(0deg, rgba(0,0,0,1) 4%, rgba(245,244,209,1) 98%);
+    --radial-negro: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(9,8,8,1) 70%);
+    
+    --degra-negro-amari: linear-gradient(175deg, rgb(0, 6, 16) 0%, rgb(210, 233, 130) 75%);
+    --degra-amari-celes: linear-gradient(0deg, rgba(142,240,232,1) 0%, rgba(133,149,74,1) 71%);
+    --degra-celes-rojo: linear-gradient(180deg, rgba(142,240,232,1) 0%, rgba(232,181,130,1) 71%);
+    --degra-rojo-viol: linear-gradient(0deg, rgba(210,142,240,1) 0%, rgba(232,181,130,1) 71%);
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+}
+main{
+    width: 100%;
+    scroll-behavior: smooth;
+}
+/*------------------------------------------------------------navbar comienzo*/
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.header{
+    background-color: var(--black-nav);
+    box-shadow: 1px 1px 5px 0px var(--grey);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 10;
+}
+
+.logo-header{
+    display: inline-block;
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-left: 10px;
+}
+
+.nav{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 70px;
+    background-color: var(--black-nav);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .5s ease-out;
+    opacity: 95%;
+    z-index: 9;
+    
+}
+
+.menu-nav a{
+    display: block;
+    padding: 20px;
+    color: white;
+}
+
+
+
+.menu-nav a:hover{
+    background-color: var(--green-hover);
+    padding: 21px;
+}
+
+.hamb{
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+}
+.hamb-line {
+    background: var(--white);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;   
+}
+
+.hamb-line::before,
+.hamb-line::after{
+    background: var(--white);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before{
+    top: 5px;
+}
+
+.hamb-line::after{
+    top: -5px;
+}
+
+.side-menu {
+    display: none;
+}
+
+
+.side-menu:checked ~ nav {
+    max-height: 100%;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+@media (min-width: 768px) {
+    .nav{
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    .menu-nav li {
+        float: left;
+    }
+
+    .menu-nav a:hover{
+        background-color: transparent;
+        color: var(--green-light)
+    }
+
+    .hamb     {
+        display: none;
+    }    
+}
+/*--------------------------------------------------------------- final de navbar*/
+
+
+
+
+/*----------------------------------------------------------Contenido principal  */
+.contenido{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.inicio-pagina {
+    box-sizing: border-box;
+    background: url(../imagenes/fondo-pared.jpg), var(--green-light);
+    background-blend-mode: multiply;
+
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+}
+
+/*---------------------------------------------------------------Inicio / tarjeta  */
+.conteiner-tarjeta{
+    display: flex;
+    max-width: 600px;
+    height: auto;
+    background-color: aliceblue;
+    border-radius: 15px;
+    box-shadow: 8px 10px 5px #0003;
+    overflow: hidden;
+
+}
+.header-persona{
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;  
+      
+}
+.conteiner-info-personal{
+    font-size: .8rem;
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+@media (max-width: 768px){
+    .conteiner-info-personal{
+        width: max-content;
+        padding: 10px;
+    }
+}
+
+.descripcion-persona{
+    background: #fbfbfb;
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* .conteiner-info-personal p{
+    color: tomato;
+    font-size: 14px;
+} */
+/*                                        incio del traductor  */
+.traductor{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    background-color: rgb(254, 246, 246);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+.idiomas-banderita{
+ display: flex;
+ align-items: center;
+ margin: 0 20px;
+}
+
+.banderita{
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+}
+
+.traducir-cv{
+    position: relative;
+    width: 40px;
+    outline: none;
+    appearance: none;
+    border-radius: 25px;
+}
+.traducir-cv:before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background-color: #f39828;
+    border-radius: 25px;
+}
+.traducir-cv:after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: wheat;
+    border-radius: 25px;
+    transition: 0.23s;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+.traducir-cv:checked::after{
+    left: 25px;
+    border: 2px solid #229395;
+}
+.traducir-cv:checked:before{
+    background: #4bf8fb;
+}
+
+/*--------------------------------------------------Final traductor */
+.header-persona a{
+    position: relative;
+    display: block;
+}
+.header-persona img{
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px var(--black);
+    margin: 20px 30px;
+    transition: .2s;
+    border: 3px solid orange;
+}
+.header-persona a:hover img{
+    box-shadow: 0px 0px 20px var(--grey);
+}
+.header-persona h2{
+    color: tomato;
+}
+.header-persona h4{
+    margin-bottom: 20px;
+}
+.social-persona{
+    display: flex;
+    justify-content: space-evenly;  
+    margin: 40px 0 10px 0; 
+}
+.links-persona{
+    height: 35px;
+    margin: 0 10px;
+}
+.links-persona:hover{
+    height: 37px;
+    box-shadow: 0 5px 10px #000;
+    border-radius: 50%;
+}
+.descripcion-persona{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.descripcion-persona p{
+    margin: 30px 30px;
+}
+
+@media(max-width: 768px) {
+    .conteiner-tarjeta{
+        display: block;
+        width: 80%;  
+        margin: 20px;  
+    }
+    .header-persona{
+        padding: 20xp 20xp 5px 20px;
+        border: none;
+    }
+    .descripcion-persona{
+        padding: 5px 20px 20xp 20px;
+        background: transparent;
+    }
+    .header-persona h4{
+        margin: 0;
+    }
+}
+/*-------------------------------------------------- Fin de primera parte / tarjeta */
+
+
+/*----------------------------------------------- Segunda parte - Tarejtas estudios */
+
+.tecno-todo{
+    background: var(--degra-negro-amari);
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 100vh;
+    z-index: -1;
+    text-align: center;
+    color: var(--white);
+}
+.conteiner-estudios{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;  
+}
+.card .face {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   backface-visibility: hidden;
+   border-radius: 10px; 
+   overflow: hidden;
+   transition: .5s;
+}
+.card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+.card .front img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: rgb(0,0,0,.4);
+    text-align: center;
+}
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3,35,54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+.card .back .link {
+    border-top: solid 1px #f3f3f3;
+    height: 50px;
+    line-height: 50px;
+}
+.card .back .link a {
+    color: #f3f3f3;
+}
+.card .back h3{
+    font-size: 20px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    color: #f3f3f3;
+}
+.card .back p {
+    color: #f3f3f3;
+    font-size: .9rem;
+    margin: 5px;
+    letter-spacing: normal;
+}
+.card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+.card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+} 
+/*-----------------------------------------------------------------------------------Final estudios*/
+
+
+
+/*---------------------------------------------------------------- Parte tres - experiencia laboral*/
+.experiencia-todo{
+    box-sizing: border-box;
+    background: url(../imagenes/work-experience.jpg),  var(--degra-amari-celes);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: wheat;
+}
+.container {
+    box-shadow: 8px 10px 5px #0003;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 50px 5px;
+    min-height: 100hv;
+}
+.exp-laboral{
+    margin-top: 50px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+}
+.accordion_item {
+    border-radius: 5px;
+} 
+.accordion_item:hover {
+    opacity: 0.9;
+}  
+.accordion_header {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    color: #000;
+}
+  
+/* .fechas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 10px;
+} */
+  
+.accordion_content {
+    margin: 0 50px 10px 50px;
+    /* margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px; */
+    overflow: hidden;
+    height: 0;
+    transition: all .5s ease;
+    font-size: 1rem;
+    color: var(--black);
+} 
+.active {
+    padding-bottom: 10px;
+}
+span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+p {
+    text-align: justify;
+    color: #000;
+}  
+.icon{
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    color: #000;
+    padding: 0;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+  .icon:hover{
+    color: #1e1f23;
+}
+/*--------------------------------------------------------fin de experiencia laboral*/
+
+
+
+/*---------------------------------------- Parte 4 - galeria de proyectos (con grid)*/
+.proyectos{
+    box-sizing: border-box;   
+    min-height: 100vh;
+    background: var(--degra-celes-rojo);
+    /* background: rgb(187,178,96);
+    background: linear-gradient(180deg, rgba(187,178,96,1) 26%, rgba(78,149,2,1) 83%); */
+}
+.galeria-h2{
+    text-align: center;
+    color: rgb(27, 9, 9);
+    padding: 20px;   
+}
+.conteiner-galeria{
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 24rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr));
+    justify-items: center; 
+    padding: 20px;
+}
+.item-galeria{
+    background-color: #ddd;
+    height: 350px;
+    width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 8px 10px 5px #0003;   
+}
+.item-galeria:hover {
+    opacity: 70%;
+    background: rgb(236, 149, 182);
+    cursor: pointer;
+    box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.2);  
+    height: 340px;
+    width: 340px;
+}
+.titulo-imagen{
+    color: #000;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.imagen-galeria{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.imagen-galeria:hover{
+    opacity: 95%;
+}
+@media(max-width: 768px){
+    .item-galeria{
+        width: 80%;
+        height: 340px;
+        box-shadow: 8px 10px 5px #0003;
+    }
+    .item-galeria:hover{
+        width: 76%;
+        height: 340px;
+        box-shadow: 8px 10px 5px #0003;
+    }
+}
+/*------------------------------------------------------- Fin de galeria de proyectos */
+
+
+
+/*----------------------------------------------------Parte 5 - area de contacto*/
+.contacto{
+    /* background: rgb(238,238,238);
+    background: linear-gradient(0deg, rgba(238,238,238,1) 16%, rgba(78,149,2,1) 83%); */
+    background: var(--degra-rojo-viol);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 100%;
+    
+}
+.titulo-contacto{
+    text-align: center;
+    padding: 20px;
+}
+.datos-conteiner{
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.items-contacto{
+    background-color: wheat;
+    padding: 20px;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    /* display: flex;
+    justify-content: space-around;  */
+    max-width: 700px;
+    box-shadow: 8px 10px 5px #0003;
+    border-radius: 15px;   
+}
+    .item-imagen{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        height: 300px;
+        width: 300px;
+        overflow: hidden;
+    }
+    .imagen-decoracion{
+        height: 300px;
+    }
+    .datos-container{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: center;
+        gap: 20px;
+    }
+
+.item-telefono{
+    background-color: #f3f3f3;
+    padding: 10px;
+    box-shadow: 8px 10px 5px #0003;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 130px;
+    border-radius: 15px;
+}
+.imagen-telefono{
+    height: auto;
+    width: 50px;
+}
+.item-telefono:hover{
+    background-color: #d5c6c6;
+    padding: 5px;
+    box-shadow: 8px 10px 10px #0003;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 130px;
+    border-radius: 15px;
+}
+@media(max-width: 768px){
+    .items-contacto{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr; 
+        justify-items: center;
+    }
+    .item-imagen{
+        height: 100px;
+        width: auto;
+        overflow: hidden;
+    }
+    .imagen-decoracion{
+        height: 100%;
+        width: auto;
+    }
+    .datos-container{
+        width: 100%;
+        align-items: center;
+    }
+    .item-telefono{
+        width: 100%;
+        height: auto;
+    }
+    .item-telefono span{
+        font-size: 3vw;
+    }
+}
+/*----------------------------------------------------------- Fin de contacto */
+
+
+
+/*
+.items-contacto{
+    display: flex;
+    background-color: #85888C;
+    height: 600px;
+    width: auto;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.item-imagen{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border: 2px solid black;
+}
+.item-telefono{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border: 2px solid black;
+}
+
+.imagen-telefono{
+    height: 50px;
+    width: auto;
+} */
